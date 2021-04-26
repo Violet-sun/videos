@@ -1,5 +1,9 @@
 # videos
 
+可以通过与SSH命令组合，进行异地服务器磁盘的备份。如将远端服务器1.2.3.4的磁盘/dev/sda备份至本地bakup.gz
+
+# ssh username@1.2.3.4 "dd if=/dev/sda | gzip -1 -" | dd of=backup.gz
+
 [linux中dd命令详解 - 风中的疯子 - 博客园 (cnblogs.com)](https://www.cnblogs.com/fantasyxo/p/10519662.html)
 
 
