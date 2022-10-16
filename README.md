@@ -223,3 +223,56 @@ heng@me: netcat -l -p 1234 | gzip > partition.img
 ```
 echo A | dd of=bigfile seek=$i bs=1 count=1 conv=notrunc
 ```
+
+
+package com.example.demo.controller;
+
+import com.example.demo.data.PostRequst;
+import com.example.demo.data.Result;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
+
+
+@Controller
+@RequestMapping("/hello/v1")
+public class FirstController {
+
+    @GetMapping("/hello")
+    @ResponseBody
+    public String hello(){
+
+
+        return "hello";
+
+    }
+
+    @GetMapping("/getresult")
+    @ResponseBody
+    public Result getRsult(){
+
+        Result result = new Result();
+        result.setData("ey=",0);
+        return result;
+
+    }
+
+    @PostMapping("/postresult")
+    @ResponseBody
+    public Result postRsult(@RequestBody PostRequst params){
+
+        Result result = new Result();
+
+        String v1 = params.getK1();
+        int v2 = params.getK2();
+        result.setData(v1,v2);
+
+        return result;
+
+    }
+
+
+}
+
